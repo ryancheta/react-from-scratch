@@ -1,0 +1,14 @@
+@mixin html_resets {
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+@mixin transition_smooth {
+  transition: 260ms ease-in-out;
+}
+@mixin hoverable($background) {
+  background: darken($background, 4%);
+}
