@@ -22,13 +22,14 @@ function App() {
   };
 
   let handleClick = () => {
-    setMessage(cities[getRandomInt(10)]);
+    let newCity = cities[getRandomInt(10)];
+    setMessage(newCity === message ? cities[getRandomInt(10)] : newCity);
   };
 
   return (
     <div className="App">
       <button onClick={() => handleClick()}>change message</button>
-      <h1 id="title">Hello React From {message}</h1>
+      <h1 id="title">Hello From {message}</h1>
     </div>
   );
 }
