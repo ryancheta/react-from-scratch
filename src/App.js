@@ -23,7 +23,6 @@ function App() {
 
   let handleClick = () => {
     setMessage(cities[getRandomInt(10)]);
-    console.log("WHAT THE FUCK?!?!");
   };
 
   return (
