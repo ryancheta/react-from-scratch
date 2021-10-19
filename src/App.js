@@ -28,7 +28,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" data-testid="app">
       <button onClick={() => handleClick()}>change message</button>
       <h1 id="title" className={styles.cssModuleTest}>
         Hello From {message}

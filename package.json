@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "react-scripts test"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,9 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^1.0.1",
     "node-sass": "^4.13.1",
@@ -27,6 +30,7 @@
   },
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-scripts": "^4.0.3"
   }
 }

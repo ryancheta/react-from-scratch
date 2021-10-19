@@ -1,10 +1,12 @@
+$orange: #fa6446;
+
 .orangeButton{
-  background-color: #fa6446 !important;
+  background-color: $orange !important;
 }
 
 .cssModuleTest{
-  background: lighten(dodgerblue, 30%);
-  color: dodgerblue;
+  background: lighten($orange, 30%);
+  color: $orange;
   padding: 4px 20px;
   border-radius: 20px;
 }
