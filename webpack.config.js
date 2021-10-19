@@ -16,7 +16,7 @@ module.exports = {
         options: { presets: ["@babel/env"] },
       },
       {
-        test: /\.module\.s(a|c)ss$/,
+        test: /\.mod\.s(a|c)ss$/,
         loader: [
           "style-loader",
           {
@@ -32,7 +32,7 @@ module.exports = {
       },
       {
         test: /\.s(a|c)ss$/,
-        exclude: /\.module.(s(a|c)ss)$/,
+        exclude: /\.mod.(s(a|c)ss)$/,
         loader: [
           "style-loader",
           "css-loader",

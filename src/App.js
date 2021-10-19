@@ -1,7 +1,7 @@
 import { hot } from "react-hot-loader";
 import React, { useState } from "react";
 import "./App.scss";
-import styles from "./app.module.scss";
+import styles from "./app.mod.scss";
 
 function App() {
   const [message, setMessage] = useState("San Jose");
