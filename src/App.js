@@ -1,6 +1,7 @@
 import { hot } from "react-hot-loader";
 import React, { useState } from "react";
 import "./App.scss";
+import styles from "./app.module.scss";
 
 function App() {
   const [message, setMessage] = useState("San Jose");
@@ -14,10 +15,10 @@ function App() {
     "Miami",
     "Austin",
     "Dallas",
-    "Portland"
+    "Portland",
   ];
 
-  let getRandomInt = max => {
+  let getRandomInt = (max) => {
     return Math.floor(Math.random() * Math.floor(max));
   };
 
@@ -29,7 +30,9 @@ function App() {
   return (
     <div className="App">
       <button onClick={() => handleClick()}>change message</button>
-      <h1 id="title">Hello From {message}</h1>
+      <h1 id="title" className={styles.cssModuleTest}>
+        Hello From {message}
+      </h1>
     </div>
   );
 }
