@@ -16,8 +16,7 @@
   a{
     padding: 0.5rem;
     font-size: 14px;
-    transition: transform 210ms ease-in-out;
-    transform-origin: left;
+    transition: all 210ms ease-in-out;
     &#active{
       background: lighten(dodgerblue, 20%) !important;
     }
