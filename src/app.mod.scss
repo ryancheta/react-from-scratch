@@ -10,3 +10,28 @@ $orange: #fa6446;
   padding: 4px 20px;
   border-radius: 20px;
 }
+
+.pageContainer{
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+
+.sideNav{
+  // position: fixed;
+  grid-column: 1/2;
+  padding: 1rem;
+  border-right: 1px solid #e6e6e6;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  // z-index: 1;
+}
+
+.main{
+  // width: 80%;
+  align-self: flex-end;
+  overflow-y: scroll;
+  grid-column: 2/-2;
+  padding: 2rem;
+}

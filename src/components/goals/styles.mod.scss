@@ -1,0 +1,13 @@
+.halfCircle {
+  position: relative;
+  width: 120px;
+  height: 60px;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  border: 12px solid dodgerblue;
+  border-bottom: 0;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  
+}

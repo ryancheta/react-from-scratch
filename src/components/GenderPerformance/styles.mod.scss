@@ -1,0 +1,15 @@
+@import '../../assets/scss/variables.mod';
+
+.container{
+  border: 1px solid $borderColor;
+  border-radius: 12px;
+  flex: 1;
+  flex-basis: 100%;
+  margin-top: 1.5rem;
+}
+
+.subtitle{
+  color: $subtitle;
+  padding: 1rem;
+  border-bottom: 1px solid $borderColor;
+}

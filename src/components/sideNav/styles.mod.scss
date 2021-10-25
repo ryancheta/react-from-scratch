@@ -1,0 +1,25 @@
+.nav{
+  ul{
+    list-style: none;
+    padding-left: 0;
+    overflow: hidden;
+    position: aboslute;
+    .navItem:not(:last-child){
+      margin-bottom: 0.875rem;
+    }
+  }
+}
+
+.navItem{
+  text-transform: capitalize;
+  color: #6D7E8B;
+  a{
+    padding: 0.5rem;
+    font-size: 14px;
+    transition: transform 210ms ease-in-out;
+    transform-origin: left;
+    &#active{
+      background: lighten(dodgerblue, 20%) !important;
+    }
+  }
+}
