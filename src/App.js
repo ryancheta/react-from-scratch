@@ -1,5 +1,5 @@
 import { hot } from "react-hot-loader";
-import React from "react";
+import React, { useRef, useEffect, useState, useMemo } from "react";
 import "./App.scss";
 import styles from "./app.mod.scss";
 import SideNav from "./components/sideNav";
@@ -15,6 +15,12 @@ import { ReactComponent as PeopleManagmentIcon } from "./assets/images/svg/side-
 import { ReactComponent as ForecastingIcon } from "./assets/images/svg/side-nav/forecasting.svg";
 import { ReactComponent as GoalsIcon } from "./assets/images/svg/side-nav/goals.svg";
 import { ReactComponent as PermissionsIcon } from "./assets/images/svg/side-nav/permissions.svg";
+import PeopleManagement from "./components/PeopleManagement";
+import TrendsAcrossRepresentativeGroups from "./components/TrendsAcrossRepresentativeGroups";
+import { setInsights } from "./store/state/insights/actions";
+import { useDispatch } from "react-redux";
+import useFetch from "./components/hooks/useFetch";
+import { getInsights } from "./api";
 
 const ICON = {
   insights: <InsightsIcon />,
@@ -35,6 +41,31 @@ const navItems = [
 ];
 
 function App() {
+  const [renderCount, setRenderCount] = useState(1);
+
+  //original insights endpoint
+  const insightsUrl =
+    "http://ec2-18-223-122-214.us-east-2.compute.amazonaws.com:8000/apis/v1/account_1/insights";
+
+  /** OTHER PUBLIC TEST ENDPOINTS */
+  // const openWeatherUrl =
+  //   "https://api.openweathermap.org/data/2.5/forecast?zip=11102&units=imperial&APPID=dcadf332823cddfb979926a1414274e8";
+
+  // const starWarsUrl = "https://swapi.dev/api/people/1";
+  /** OTHER PUBLIC TEST ENDPOINTS */
+
+  //new insights endpoint
+  const url =
+    "http://ec2-18-223-122-214.us-east-2.compute.amazonaws.com:8000/apis/v1/account_1/insights";
+  const data = useFetch(url, null);
+  const theRef = useRef(1);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setRenderCount((prev) => prev++);
+    dispatch(setInsights(navItems));
+  }, []);
+
   return (
     <div className={styles.pageContainer} data-testid="app">
       <SideNav className={styles.sideNav} navItems={navItems} />
@@ -46,6 +77,7 @@ function App() {
           component={CultureAssessment}
         />
         <Route path={`/forecasting`} component={Forecasting} />
+        <Route path={`/people-management`} component={PeopleManagement} />
       </Switch>
     </div>
   );
@@ -54,8 +86,17 @@ function App() {
 export const Main = () => (
   <div className={styles.main}>
     <TopNav style={{ height: "60px", borderBottom: "1px solid #e6e6e6" }} />
-    <Goals style={{ justifyContent: "space-around", marginTop: "1rem" }} />
+    <Goals
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(4, 1fr)",
+        gap: "1.5rem",
+        marginTop: "1rem",
+        placeItems: "center",
+      }}
+    />
     <RepresentativeGroups />
+    <TrendsAcrossRepresentativeGroups />
   </div>
 );
 

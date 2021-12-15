@@ -1,5 +1,6 @@
 import React from "react";
-import { flex } from "../../assets/scss/_flex.mod.scss";
+import { classes } from "utils";
+import { flex, centerItems } from "assets/scss/_flex.mod.scss";
 import Goal from "./Goal";
 
 const goals = [
@@ -16,11 +17,20 @@ const goals = [
 const Goals = (props) => {
   return (
     <div style={{ marginBottom: "1rem" }}>
-      <div className={flex} style={{ alignItems: "center" }}>
+      <div className={classes(flex, centerItems)}>
         <h3 style={{ marginRight: "8px" }}>Commitment Progress</h3>
-        <p style={{ color: "#0049C6" }}>
+        <button
+          style={{
+            color: "#0049C6",
+            fontSize: "1rem",
+            background: "transparent",
+            outline: "none",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
           <small>View All</small>
-        </p>
+        </button>
       </div>
       <div className={flex} {...props}>
         {goals.map((goal) => (
@@ -31,6 +41,7 @@ const Goals = (props) => {
             percent={goal.percent}
           />
         ))}
+        <h4>+ Add Goals</h4>
       </div>
     </div>
   );

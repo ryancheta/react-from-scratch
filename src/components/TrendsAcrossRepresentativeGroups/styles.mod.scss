@@ -1,0 +1,31 @@
+@import '../../assets/scss/variables.mod';
+
+.title{
+  text-transform: capitalize;
+  color: #808191;
+}
+
+.container{
+  border: 1px solid $borderColor;
+  border-radius: $borderRadius;
+}
+
+.statContainer{
+  border-bottom: 1px solid $borderColor;
+  padding: $sm;
+  display: flex;
+  justify-content: space-around;
+  flex-basis: 50%;
+}
+
+// .percentContainer{
+//   color: var(--color);
+// }
+
+.increase{
+  color: green;
+}
+
+.decrease{
+  color: red;
+}

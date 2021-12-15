@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: path.resolve(__dirname, "src/index.js"),
   mode: "development",
   node: {
     fs: "empty",
@@ -47,13 +47,18 @@ module.exports = {
       },
     ],
   },
-  resolve: { extensions: ["*", ".js", ".jsx", ".scss"] },
+  resolve: {
+    extensions: ["*", ".js", ".jsx", ".scss"],
+    modules: [path.resolve(__dirname, "src"), "node_modules"],
+  },
   output: {
-    path: path.resolve(__dirname, "dist/"),
+    path: path.resolve(__dirname, "dist"),
     publicPath: "/dist/",
     filename: "bundle.js",
   },
   devServer: {
+    https: false,
+    host: "0.0.0.0",
     contentBase: path.join(__dirname, "public/"),
     historyApiFallback: true,
     port: 3000,

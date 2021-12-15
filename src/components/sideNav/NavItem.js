@@ -10,20 +10,19 @@ const NavItem = ({ itemName, itemIcon }) => {
 
   useEffect(() => {
     let svg = document.querySelector("svg");
-    console.log("svg", svg);
     svg.style.stroke = "red";
   }, []);
 
-  console.log(
-    "pathname: %s\nslug: %s\nlocation: %o\nitemName: %s",
-    pathname,
-    slug,
-    window.location,
-    itemName
-  );
-  let activeStyle = pathname.includes(itemName)
+  // console.log(
+  //   "pathname: %s\nslug: %s\nlocation: %o\nitemName: %s",
+  //   pathname,
+  //   slug,
+  //   window.location,
+  //   itemName
+  // );
+  let activeStyle = pathname.includes(slug)
     ? {
-        background: "#3F8CFF30",
+        background: "#3F8CFF10",
         borderRadius: "50px",
         color: "#0049C6",
       }

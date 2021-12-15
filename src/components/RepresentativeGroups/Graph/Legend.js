@@ -1,12 +1,13 @@
 import React from "react";
 import { flex } from "../../../assets/scss/_flex.mod.scss";
 import styles from "./styles.mod.scss";
+import { barColors } from "../CustomBarChart";
 
 const items = [
-  { color: "red", title: "Underrepresented Women" },
-  { color: "dodgerblue", title: "Underrepresented Men" },
-  { color: "cyan", title: "White Women" },
-  { color: "green", title: "White Men" },
+  { color: barColors.underrepresented_women, title: "Underrepresented Women" },
+  { color: barColors.underrepresented_men, title: "Underrepresented Men" },
+  { color: barColors.white_women, title: "White Women" },
+  { color: barColors.white_men, title: "White Men" },
 ];
 
 const Legend = () => {
@@ -20,10 +21,9 @@ const Legend = () => {
 };
 
 const Item = ({ color, title }) => (
-  <div>
-    <p className={styles.legendItem}>
-      <small>{title}</small>
-    </p>
-  </div>
+  <p className={styles.legendItem} style={{ "--dotColor": color }}>
+    <small>{title}</small>
+  </p>
 );
+
 export default Legend;

@@ -39,7 +39,9 @@ export const Select = ({ options }) => (
     }}
   >
     {options?.map((option, idx) => (
-      <option key={idx}>{option}</option>
+      <option key={idx} defaultValue={`Obie Wan`}>
+        {option}
+      </option>
     ))}
   </select>
 );

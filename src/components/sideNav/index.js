@@ -1,9 +1,8 @@
 import React, { forwardRef } from "react";
-import { classes } from "../../../utils";
+import { classes } from "utils";
 import NavItem from "./NavItem";
 import styles from "./styles.mod.scss";
-import { Switch, Route } from "react-router-dom";
-import { Main } from "../../App";
+import { Main } from "App";
 import CultureAssessment from "../CultureAssessment";
 
 const routes = [

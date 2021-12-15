@@ -1,8 +1,6 @@
 import React from "react";
-// import { flex } from "../../assets/scss/_flex.mod.scss";
+import { flex } from "../../assets/scss/_flex.mod.scss";
 import styles from "./styles.mod.scss";
-
-let flex = { display: "flex" };
 
 const Goal = ({ title, number, percent, ...rest }) => {
   return (
@@ -10,16 +8,18 @@ const Goal = ({ title, number, percent, ...rest }) => {
       style={{
         display: "flex",
         alignContent: "center",
-        // marginRight: "6rem",
-        // borderRight: "1px solid #a4a4a4",
+        // borderRight: "2px solid #ececec",
+        // paddingRight: "1.5rem",
       }}
       {...rest}
     >
-      <div style={{ marginRight: "1rem" }}>
-        <Title title={title} />
-        <Stat number={number} percent={percent} />
+      <div className={flex}>
+        <div style={{ marginRight: "1rem" }}>
+          <Title title={title} />
+          <Stat number={number} percent={percent} />
+        </div>
+        <Graph />
       </div>
-      <Graph />
     </div>
   );
 };
@@ -29,15 +29,16 @@ const Title = ({ title }) => (
     style={{
       whiteSpace: "nowrap",
       fontWeight: "normal",
-      letterSpacing: "0.25px",
+      letterSpacing: "1px",
       textTransform: "uppercase",
       color: "#50616E",
       marginBottom: "0.75rem",
     }}
   >
-    {title}
+    <small>{title}</small>
   </h5>
 );
+
 const Stat = ({ number, percent }) => (
   <div style={{ display: "flex", alignItems: "center" }}>
     <h2 style={{ marginRight: "0.5rem" }}>{number}</h2>
