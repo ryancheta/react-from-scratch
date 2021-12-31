@@ -2,8 +2,13 @@ import React from "react";
 import Legend from "./Legend";
 import { data } from "../CustomBarChart";
 import CustomBarChart from "../CustomBarChart";
+import { useSelector } from "react-redux";
 
 const Graph = () => {
+  const { roles } = useSelector((state) => state.insights.insights);
+  const positions = roles.map(({ role }) => role);
+  const groups = roles.map(({ groups }) => groups)[0].map(({ type }) => type);
+
   return (
     <div
       style={{
