@@ -2,12 +2,13 @@
   position: relative;
   width: 120px;
   height: 60px;
-  border-top-left-radius: 60px;
-  border-top-right-radius: 60px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
   border: 12px solid dodgerblue;
+  border: 12px solid #ccc;
   border-bottom: 0;
   align-self: flex-end;
   display: flex;
   justify-content: center;
-  
+
 }
