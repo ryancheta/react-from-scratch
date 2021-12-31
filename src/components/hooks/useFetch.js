@@ -5,6 +5,7 @@ const useFetch = (url, options) => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+
   options = options || {
     headers: {
       "X-Frame-Options": "sameorigin",
@@ -17,12 +18,18 @@ const useFetch = (url, options) => {
   };
 
   useEffect(() => {
-    fetch(url, options)
-      .then((res) => res.json())
-      .then((data) => setData(data))
-      .catch((error) => {
-        setError(error);
-      });
+    (async () => {
+      setLoading(true);
+      try {
+        let response = await axios.get(url);
+        setResponse(response);
+        setLoading(false);
+      } catch (err) {
+        console.error(`Error trying to fetch: ${err}`);
+        setError(err);
+        setLoading(false);
+      }
+    })();
   }, [url]);
 
   return { response, error, loading };
