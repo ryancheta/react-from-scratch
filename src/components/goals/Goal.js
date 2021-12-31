@@ -1,8 +1,9 @@
 import React from "react";
-import { flex } from "../../assets/scss/_flex.mod.scss";
+import { classes } from "../../utils";
+import { flex, flex1, spaceBetween } from "../../assets/scss/_flex.mod.scss";
 import styles from "./styles.mod.scss";
 
-const Goal = ({ title, number, percent, ...rest }) => {
+const Goal = ({ title, count, percent, ...rest }) => {
   return (
     <div
       style={{
@@ -13,10 +14,10 @@ const Goal = ({ title, number, percent, ...rest }) => {
       }}
       {...rest}
     >
-      <div className={flex}>
+      <div className={classes(flex, spaceBetween, flex1)} id="this">
         <div style={{ marginRight: "1rem" }}>
           <Title title={title} />
-          <Stat number={number} percent={percent} />
+          <Stat count={count} percent={percent} />
         </div>
         <Graph />
       </div>
@@ -39,10 +40,12 @@ const Title = ({ title }) => (
   </h5>
 );
 
-const Stat = ({ number, percent }) => (
+const Stat = ({ count, percent }) => (
   <div style={{ display: "flex", alignItems: "center" }}>
-    <h2 style={{ marginRight: "0.5rem" }}>{number}</h2>
-    <p style={{ color: "#52B788" }}>{percent}</p>
+    <h2 style={{ marginRight: "0.5rem" }}>
+      {Intl.NumberFormat().format(count + 1000)}
+    </h2>
+    <p style={{ color: "#52B788" }}>{percent}%</p>
   </div>
 );
 
